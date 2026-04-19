@@ -1,0 +1,7 @@
+method,device,store_items_s,query_items_s
+Auxo,cpu,1804640.0,300965.0
+GSS,cpu,11808600.0,9998390.0
+HourglassSketch,cpu,4142806.0,9913498.0
+Mayfly,cpu,412862.0,86540.0
+Mayfly,gpu,854270.0,224705.0
+TCM,cpu,3422750.0,7136360.0

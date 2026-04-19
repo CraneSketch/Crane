@@ -1,0 +1,48 @@
+workdir: ./workdir
+device: cuda
+loss_fn: LogMAELoss
+task_type: Basic
+project_name: case_study_edge
+seed: 42
+
+model:
+  name: CraneForPathFlow
+  source_input_dim: 32
+  dest_input_dim: 32
+  source_hidden_dim: 32
+  dest_hidden_dim: 32
+  source_embedding_dim: 64
+  dest_embedding_dim: 64
+  memory_layer: 4
+  carry_threshold: 4
+
+train:
+  lr: 1e-3
+  num_epoch: 1000
+  optimizer: AdamW
+  scheduler: CosineAnnealingLR
+  scheduler_config:
+    T_max: 1000
+    eta_min: 5e-4
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  save_interval: 100
+
+eval:
+  dataset_path_list: ["artifacts/datasets/DownstreamDatasets/PathQuery/RouteViews_ASPaths"]
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  data_device: cpu
+  model_device: cuda
+
+finetune:
+  strict: false
+  freeze_embedding_nets: true
+  finetune_lr: null
+  cache_written_memory: true
+  select_by: last
+  evaluate_after: false
+
+output:
+  log_dir: logs
+  source_code_dir: ./crane

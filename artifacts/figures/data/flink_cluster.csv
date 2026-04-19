@@ -1,0 +1,13 @@
+workers,method,store_mips,query_mips
+1,crane,2.213,4.2741
+1,crane-native,0.4647,0.3262
+1,stateful,4.6033,3.7229
+2,crane,2.8679,5.3785
+2,crane-native,0.5279,0.3626
+2,stateful,6.0992,5.2933
+3,crane,2.7904,5.5105
+3,crane-native,0.6105,0.3805
+3,stateful,10.4899,9.642
+4,crane,3.0118,4.7516
+4,crane-native,0.5728,0.3952
+4,stateful,8.497,7.1584

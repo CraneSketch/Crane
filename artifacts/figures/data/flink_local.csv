@@ -1,0 +1,13 @@
+parallelism,method,store_mips,query_mips
+1,crane,1.5767,2.6675
+1,crane-native,0.3666,0.2656
+1,stateful,3.6467,2.6689
+2,crane,2.6159,6.7028
+2,crane-native,0.5252,0.405
+2,stateful,5.3949,4.2292
+3,crane,3.3626,6.6362
+3,crane-native,0.9436,0.6872
+3,stateful,10.0902,7.4902
+4,crane,2.7884,6.7716
+4,crane-native,0.5719,0.4153
+4,stateful,5.8174,4.4265

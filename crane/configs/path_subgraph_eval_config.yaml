@@ -1,0 +1,30 @@
+workdir: ./workdir
+device: cuda
+task_type: Downstream
+project_name: case_study
+seed: 42
+
+qw_model:
+  name: CraneForPathFlow
+  source_input_dim: 32
+  dest_input_dim: 32
+  source_hidden_dim: 32
+  dest_hidden_dim: 32
+  source_embedding_dim: 64
+  dest_embedding_dim: 64
+  memory_layer: 4
+  carry_threshold: 4
+
+downstream:
+  topk_list: [100]
+
+eval:
+  dataset_path_list: ["artifacts/datasets/DownstreamDatasets/PathQuery/RouteViews_ASPaths"]
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  data_device: cpu
+  model_device: cuda
+
+output:
+  log_dir: logs
+  source_code_dir: ./crane

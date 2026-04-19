@@ -1,0 +1,8 @@
+level,label,store_mips,query_mips
+0,Native,0.5285,0.4994
+1,+BatchedQuery,0.5419,1.5292
+2,+BNFolding,0.7749,1.4916
+3,+KernelFusion,1.6822,3.0456
+4,+FP16/LBR,1.6596,3.1004
+5,+Buffers,1.6696,3.8075
+6,+Pipeline,1.6422,3.8373
