@@ -1,0 +1,42 @@
+workdir: "../"
+device: cuda
+task_type: Downstream
+project_name: default
+seed: 42
+
+qw_model:
+  name: Crane
+  source_input_dim: 32
+  dest_input_dim: 32
+  source_hidden_dim: 32
+  dest_hidden_dim: 32
+  source_embedding_dim: 64
+  dest_embedding_dim: 64
+  memory_layer: 4
+  carry_threshold: 4
+
+downstream:
+  node_binary_dim: 32
+  path_query:
+    num_queries: 500
+    min_path_length: 3
+    max_path_length: 8
+    negative_ratio: 0.3
+  subgraph_query:
+    num_queries: 500
+    min_subgraph_size: 5
+    max_subgraph_size: 20
+    nonexistent_ratio: 0.2
+
+eval:
+  dataset_path_list: [
+    "../../Datasets/ForCrane/Lkml",
+  ]
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  data_device: cpu
+  model_device: cuda
+
+output:
+  log_dir: "logs"
+  source_code_dir: "./crane"

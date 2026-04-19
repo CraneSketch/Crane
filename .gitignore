@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+*.o
+*.d
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Run artifacts
+workdir/
+logs/
+*.log
+
+# Flink local staging
+flink/data/
+flink/logs/
+
+# Model checkpoints (not versioned)
+weights/
+*.pth
+*.pt
+*.ckpt

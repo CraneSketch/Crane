@@ -1,0 +1,62 @@
+workdir: "../"
+device: cuda
+loss_fn: MAELoss
+task_type: Basic
+project_name: default
+seed: 42
+model:
+  name: Crane
+  source_input_dim: 32
+  dest_input_dim: 32
+  source_hidden_dim: 32
+  dest_hidden_dim: 32
+  source_embedding_dim: 64
+  dest_embedding_dim: 64
+  memory_layer: 4
+  carry_threshold: 4
+generator:
+  name: DenseGenerator
+  node_binary_dim: 32
+  num_train_tasks: 50
+  num_val_tasks: 50
+  item_lower: 200
+  item_upper: 600000
+  generate_ratio: 0.2
+  ave_frequency: 5
+  zipf_param_lower: 0.3
+  zipf_param_upper: 0.8
+  skew_lower: 1
+  skew_upper: 10
+  real_dataset_path: "../../Datasets/ForCrane/Lkml"
+train:
+  lr: 1e-3
+  num_epoch: 20
+  optimizer: AdamW
+  scheduler: CosineAnnealingLR
+  scheduler_config:
+    T_max: 50
+    eta_min: 1e-6
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  save_interval: 1
+eval:
+  dataset_path_list: [
+    "../../Datasets/ForCrane/Lkml",
+    "../../Datasets/ForCrane/NotreDame",
+    "../../Datasets/ForCrane/CAIDA2018",
+    "../../Datasets/ForCrane/WiKiTalk",
+    "../../Datasets/ForCrane/StackOverflow"
+  ]
+  mini_batch_size: 2048
+  micro_batch_size: 4
+  data_device: cpu
+  model_device: cuda
+finetune:
+  strict: true
+  freeze_embedding_nets: false
+  finetune_lr: null
+  dataset_path: "../Datasets/ForCrane/Lkml"
+output:
+  log_dir: "logs"
+  source_code_dir: "./crane"
+
